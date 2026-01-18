@@ -1,0 +1,1296 @@
+{
+    "query": "/m/05hjmd /award/award_nominee/award_nominations./award/award_nomination/award ?",
+    "nodes": [
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/01c92g) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            4,
+            0.0307717
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0cqhk0) <= /people/person/nationality(X,/m/09c7w0)",
+            2000,
+            75,
+            0.0381241
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0ck27z) <= /people/person/nationality(X,/m/09c7w0)",
+            2000,
+            117,
+            0.060126
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0ck27z) <= /people/person/spouse_s./people/marriage/type_of_union(X,/m/04ztj)",
+            2000,
+            102,
+            0.0522125
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0ck27z) <= /people/person/gender(X,/m/05zppz)",
+            2000,
+            79,
+            0.0401987
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gqz2) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            3,
+            0.0674413
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_ceremony/awards_presented./award/award_honor/award_winner(B,A), /award/award_category/winners./award/award_honor/ceremony(Y,B)",
+            2000,
+            85,
+            0.0433189
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_ceremony/awards_presented./award/award_honor/award_winner(B,A), /award/award_category/winners./award/award_honor/ceremony(Y,B)",
+            2000,
+            82,
+            0.0417576
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/nominated_for(X,A), /award/award_ceremony/awards_presented./award/award_honor/honored_for(B,A), /award/award_category/winners./award/award_honor/ceremony(Y,B)",
+            2000,
+            67,
+            0.0339875
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/nominated_for(X,A), /award/award_nominee/award_nominations./award/award_nomination/nominated_for(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            164,
+            0.0853352
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /film/film/produced_by(A,X), /award/award_nominee/award_nominations./award/award_nomination/nominated_for(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            1294,
+            82,
+            0.0652059
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_nominee/award_nominations./award/award_nomination/nominated_for(A,B), /award/award_category/nominees./award/award_nomination/nominated_for(Y,B)",
+            2000,
+            184,
+            0.0962583
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/01by1l) <= /people/person/nationality(X,/m/09c7w0)",
+            2000,
+            74,
+            0.0376061
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/01by1l) <= /people/person/gender(X,/m/05zppz)",
+            2000,
+            63,
+            0.0319257
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_nominee/award_nominations./award/award_nomination/nominated_for(A,B), /award/award_category/nominees./award/award_nomination/nominated_for(Y,B)",
+            2000,
+            170,
+            0.0885996
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_nominee/award_nominations./award/award_nomination/nominated_for(A,B), /award/award_category/nominees./award/award_nomination/nominated_for(Y,B)",
+            2000,
+            160,
+            0.0831648
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/nominated_for(X,A), /award/award_nominee/award_nominations./award/award_nomination/nominated_for(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            190,
+            0.0995586
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0c4z8) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            5,
+            0.0386148
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/nominated_for(X,A), /film/actor/film./film/performance/film(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            119,
+            0.0611859
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_winning_work/awards_won./award/award_honor/award_winner(B,A), /award/award_category/nominees./award/award_nomination/nominated_for(Y,B)",
+            1640,
+            175,
+            0.112478
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_winning_work/awards_won./award/award_honor/award_winner(B,A), /award/award_category/nominees./award/award_nomination/nominated_for(Y,B)",
+            2000,
+            177,
+            0.0924216
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_winning_work/awards_won./award/award_honor/award_winner(B,A), /award/award_category/nominees./award/award_nomination/nominated_for(Y,B)",
+            2000,
+            164,
+            0.0853352
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_winning_work/awards_won./award/award_honor/award_winner(B,A), /award/award_category/nominees./award/award_nomination/nominated_for(Y,B)",
+            2000,
+            162,
+            0.0842494
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_winning_work/awards_won./award/award_honor/award_winner(B,A), /award/award_winning_work/awards_won./award/award_honor/award(B,Y)",
+            2000,
+            206,
+            0.108413
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_winning_work/awards_won./award/award_honor/award_winner(B,A), /award/award_winning_work/awards_won./award/award_honor/award(B,Y)",
+            2000,
+            202,
+            0.106192
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_nominee/award_nominations./award/award_nomination/nominated_for(A,B), /award/award_winning_work/awards_won./award/award_honor/award(B,Y)",
+            2000,
+            158,
+            0.0820814
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/040njc) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            3,
+            0.0674413
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/040njc) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            7,
+            0.0544882
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/040njc) <= /people/person/spouse_s./people/marriage/type_of_union(X,/m/04ztj)",
+            2000,
+            82,
+            0.0417576
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/040njc) <= /people/person/gender(X,/m/05zppz)",
+            2000,
+            75,
+            0.0381241
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gr4k) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            4,
+            0.0909718
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/nominated_for(X,A), /award/award_winning_work/awards_won./award/award_honor/award(A,Y)",
+            2000,
+            280,
+            0.150417
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /film/film/produced_by(A,X), /award/award_winning_work/awards_won./award/award_honor/award(A,Y)",
+            647,
+            76,
+            0.123937
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/nominated_for(X,A), /award/award_category/nominees./award/award_nomination/nominated_for(Y,A)",
+            2000,
+            327,
+            0.178041
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /film/film/produced_by(A,X), /award/award_category/nominees./award/award_nomination/nominated_for(Y,A)",
+            1195,
+            180,
+            0.162519
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gqy2) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            5,
+            0.115069
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gqy2) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            7,
+            0.0544882
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/nominated_for(X,A), /film/actor/film./film/performance/film(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            93,
+            0.0474942
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gqy2) <= /people/person/spouse_s./people/marriage/type_of_union(X,/m/04ztj)",
+            2000,
+            87,
+            0.0443611
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gqy2) <= /people/person/gender(X,/m/05zppz)",
+            2000,
+            85,
+            0.0433189
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gqy2) <= /people/person/nationality(X,/m/09c7w0)",
+            2000,
+            75,
+            0.0381241
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0f4x7) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            9,
+            0.217723
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/nominated_for(X,A), /award/award_winning_work/awards_won./award/award_honor/award_winner(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            177,
+            0.0924216
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0f4x7) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            10,
+            0.0787809
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0f4x7) <= /people/person/gender(X,/m/05zppz)",
+            2000,
+            80,
+            0.0407181
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0f4x7) <= /people/person/spouse_s./people/marriage/type_of_union(X,/m/04ztj)",
+            2000,
+            77,
+            0.0391609
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0f4x7) <= /people/person/nationality(X,/m/09c7w0)",
+            2000,
+            69,
+            0.0350201
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            409,
+            0.228144
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            403,
+            0.224391
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/04dn09n) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            3,
+            0.0674413
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_winner/awards_won./award/award_honor/award_winner(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            413,
+            0.230653
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            410,
+            0.22877
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_winner/awards_won./award/award_honor/award_winner(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            387,
+            0.214453
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_winner/awards_won./award/award_honor/award_winner(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            380,
+            0.210136
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            367,
+            0.202168
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_winner/awards_won./award/award_honor/award_winner(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            1847,
+            327,
+            0.194272
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            420,
+            0.23506
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            419,
+            0.234429
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gr51) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            6,
+            0.04652
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/019f4v) <= /people/person/spouse_s./people/marriage/type_of_union(X,/m/04ztj)",
+            2000,
+            63,
+            0.0319257
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gs9p) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            5,
+            0.115069
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gs9p) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            10,
+            0.0787809
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gs9p) <= /people/person/spouse_s./people/marriage/type_of_union(X,/m/04ztj)",
+            2000,
+            67,
+            0.0339875
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            455,
+            0.257389
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            443,
+            0.249677
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            442,
+            0.249037
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            430,
+            0.241389
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/09sb52) <= /people/person/nationality(X,/m/09c7w0)",
+            2000,
+            162,
+            0.0842494
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/09sb52) <= /people/person/spouse_s./people/marriage/type_of_union(X,/m/04ztj)",
+            2000,
+            161,
+            0.0837069
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/09sb52) <= /people/person/gender(X,/m/05zppz)",
+            2000,
+            142,
+            0.073456
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/05zr6wv) <= /people/person/nationality(X,/m/09c7w0)",
+            2000,
+            67,
+            0.0339875
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0bdwqv) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            5,
+            0.0386148
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_winner/awards_won./award/award_honor/award_winner(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            457,
+            0.25868
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_winner/awards_won./award/award_honor/award_winner(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            452,
+            0.255456
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_winner/awards_won./award/award_honor/award_winner(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            443,
+            0.249677
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_winner/awards_won./award/award_honor/award_winner(A,B), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            439,
+            0.247119
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_winner/awards_won./award/award_honor/award_winner(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            1997,
+            509,
+            0.293359
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_winner/awards_won./award/award_honor/award_winner(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            1962,
+            487,
+            0.284467
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_winner/awards_won./award/award_honor/award_winner(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            495,
+            0.283534
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_winner/awards_won./award/award_honor/award_winner(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            1957,
+            481,
+            0.281247
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_category/winners./award/award_honor/award_winner(Y,A)",
+            2000,
+            532,
+            0.308343
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_category/winners./award/award_honor/award_winner(Y,A)",
+            2000,
+            483,
+            0.275619
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_winner/awards_won./award/award_honor/award_winner(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            452,
+            0.255456
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_winner/awards_won./award/award_honor/award_winner(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            446,
+            0.251599
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_winner/awards_won./award/award_honor/award_winner(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            446,
+            0.251599
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_winner/awards_won./award/award_honor/award_winner(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            442,
+            0.249037
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            439,
+            0.247119
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            394,
+            0.218789
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            384,
+            0.212601
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            381,
+            0.210752
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            2000,
+            377,
+            0.208292
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_nominee/award_nominations./award/award_nomination/award_nominee(B,A), /award/award_nominee/award_nominations./award/award_nomination/award(B,Y)",
+            2000,
+            373,
+            0.205838
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /film/film/produced_by(A,X), /film/film/produced_by(A,B), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            494,
+            92,
+            0.203793
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/054ky1) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            4,
+            0.0909718
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_nominee/award_nominations./award/award_nomination/award(A,Y)",
+            2000,
+            561,
+            0.328227
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_nominee/award_nominations./award/award_nomination/award(A,Y)",
+            2000,
+            522,
+            0.301577
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /film/film/produced_by(A,X), /film/film_distributor/films_distributed./film/film_film_distributor_relationship/film(B,A), /award/award_category/winners./award/award_honor/award_winner(Y,B)",
+            592,
+            76,
+            0.136167
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(A,X), /award/award_category/winners./award/award_honor/award_winner(Y,A)",
+            2000,
+            623,
+            0.372112
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,A), /award/award_category/winners./award/award_honor/award_winner(Y,A)",
+            1765,
+            547,
+            0.369673
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/07bdd_) <= /award/award_winner/awards_won./award/award_honor/award_winner(/m/016tt2,X)",
+            6,
+            3,
+            0.318454
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/07bdd_) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,/m/016tt2)",
+            6,
+            3,
+            0.318454
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gq9h) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(/m/03_bcg,X)",
+            5,
+            3,
+            0.356675
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gq9h) <= /award/award_winner/awards_won./award/award_honor/award_winner(/m/016tt2,X)",
+            6,
+            3,
+            0.318454
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(A,X), /award/award_nominee/award_nominations./award/award_nomination/award(A,Y)",
+            2000,
+            533,
+            0.309022
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,Y) <= /award/award_nominee/award_nominations./award/award_nomination/award_nominee(X,A), /award/award_nominee/award_nominations./award/award_nomination/award(A,Y)",
+            2000,
+            474,
+            0.269723
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gq9h) <= /people/deceased_person/place_of_death(X,/m/0k049)",
+            41,
+            4,
+            0.0909718
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gq9h) <= /people/cause_of_death/people(/m/0gk4g,X)",
+            127,
+            9,
+            0.0706176
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gq9h) <= /people/person/spouse_s./people/marriage/type_of_union(X,/m/04ztj)",
+            2000,
+            82,
+            0.0417576
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gq9h) <= /people/person/gender(X,/m/05zppz)",
+            2000,
+            78,
+            0.0396797
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/0gq9h) <= /people/person/nationality(X,/m/09c7w0)",
+            2000,
+            68,
+            0.0345037
+        ],
+        [
+            "/award/award_nominee/award_nominations./award/award_nomination/award(X,/m/05p1dby) <= /award/award_winner/awards_won./award/award_honor/award_winner(X,/m/016tt2)",
+            6,
+            3,
+            0.318454
+        ]
+    ],
+    "edges": [
+        [
+            32,
+            19,
+            393,
+            129,
+            0.396621
+        ],
+        [
+            34,
+            19,
+            685,
+            249,
+            0.450944
+        ],
+        [
+            57,
+            34,
+            362,
+            196,
+            0.776409
+        ],
+        [
+            56,
+            33,
+            2543,
+            1160,
+            0.60876
+        ],
+        [
+            63,
+            19,
+            2600,
+            1004,
+            0.487769
+        ],
+        [
+            77,
+            34,
+            151,
+            104,
+            1.15268
+        ],
+        [
+            76,
+            33,
+            1149,
+            712,
+            0.965298
+        ],
+        [
+            78,
+            19,
+            1904,
+            837,
+            0.578694
+        ],
+        [
+            73,
+            92,
+            175,
+            101,
+            0.852996
+        ],
+        [
+            80,
+            55,
+            3072,
+            1581,
+            0.722537
+        ],
+        [
+            94,
+            96,
+            80,
+            52,
+            1.02715
+        ],
+        [
+            95,
+            89,
+            3151,
+            1540,
+            0.670562
+        ],
+        [
+            94,
+            95,
+            2997,
+            1615,
+            0.77369
+        ],
+        [
+            94,
+            55,
+            2734,
+            1481,
+            0.779793
+        ],
+        [
+            95,
+            66,
+            3034,
+            1456,
+            0.65342
+        ],
+        [
+            94,
+            19,
+            1584,
+            890,
+            0.824428
+        ],
+        [
+            95,
+            55,
+            3476,
+            1588,
+            0.610122
+        ],
+        [
+            95,
+            54,
+            3623,
+            1663,
+            0.614124
+        ],
+        [
+            97,
+            96,
+            61,
+            44,
+            1.23676
+        ],
+        [
+            98,
+            19,
+            1218,
+            746,
+            0.946691
+        ],
+        [
+            94,
+            90,
+            2546,
+            1436,
+            0.829656
+        ],
+        [
+            97,
+            34,
+            108,
+            83,
+            1.43325
+        ],
+        [
+            33,
+            96,
+            160,
+            109,
+            1.13016
+        ],
+        [
+            103,
+            90,
+            3395,
+            1873,
+            0.801916
+        ]
+    ],
+    "candidates": [
+        {
+            "name": "/m/0gq9h",
+            "nodes": [
+                97,
+                98,
+                101,
+                102,
+                103,
+                76,
+                77,
+                78,
+                79,
+                104,
+                72,
+                63,
+                73,
+                82,
+                84,
+                83,
+                74,
+                64,
+                85,
+                65,
+                75,
+                86,
+                66,
+                56,
+                57,
+                50,
+                51,
+                47,
+                48,
+                87,
+                52,
+                88,
+                89,
+                53,
+                90,
+                91,
+                54,
+                55,
+                33,
+                34,
+                96,
+                19,
+                16,
+                11,
+                20,
+                105,
+                14,
+                21,
+                9,
+                22,
+                15,
+                25,
+                106,
+                10,
+                6,
+                107,
+                7,
+                108,
+                109,
+                8
+            ],
+            "edges": [
+                21,
+                22,
+                19,
+                23
+            ],
+            "GT": true,
+            "originalSurprisal": 11.5083,
+            "baseSurprisal": 0.429583,
+            "newSurprisal": 0.429583,
+            "rankBefore": 1,
+            "rankAfter": 1
+        },
+        {
+            "name": "/m/07bdd_",
+            "nodes": [
+                97,
+                98,
+                94,
+                99,
+                100,
+                95,
+                76,
+                77,
+                78,
+                79,
+                72,
+                63,
+                73,
+                82,
+                84,
+                83,
+                64,
+                74,
+                85,
+                65,
+                75,
+                66,
+                56,
+                57,
+                47,
+                48,
+                89,
+                90,
+                96,
+                19,
+                11,
+                20,
+                9,
+                10
+            ],
+            "edges": [
+                18,
+                19,
+                20,
+                11
+            ],
+            "GT": false,
+            "originalSurprisal": 8.09615,
+            "baseSurprisal": 0.429066,
+            "newSurprisal": 0.429066,
+            "rankBefore": 4,
+            "rankAfter": 2
+        },
+        {
+            "name": "/m/05p1dby",
+            "nodes": [
+                97,
+                98,
+                94,
+                110,
+                95,
+                76,
+                77,
+                78,
+                79,
+                72,
+                63,
+                73,
+                82,
+                84,
+                83,
+                74,
+                64,
+                85,
+                65,
+                75,
+                66,
+                56,
+                57,
+                50,
+                51,
+                47,
+                48,
+                52,
+                89,
+                53,
+                90,
+                54,
+                55,
+                96,
+                19,
+                16,
+                11,
+                20,
+                9,
+                10
+            ],
+            "edges": [
+                18,
+                19,
+                20,
+                11
+            ],
+            "GT": false,
+            "originalSurprisal": 9.15771,
+            "baseSurprisal": 0.42906,
+            "newSurprisal": 0.42906,
+            "rankBefore": 2,
+            "rankAfter": 3
+        },
+        {
+            "name": "/m/02x1z2s",
+            "nodes": [
+                94,
+                95,
+                76,
+                77,
+                78,
+                79,
+                63,
+                64,
+                65,
+                66,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                16,
+                11
+            ],
+            "edges": [
+                13,
+                14
+            ],
+            "GT": false,
+            "originalSurprisal": 4.24617,
+            "baseSurprisal": 0.375229,
+            "newSurprisal": 0.375229,
+            "rankBefore": 8,
+            "rankAfter": 4
+        },
+        {
+            "name": "/m/018wng",
+            "nodes": [
+                94,
+                95,
+                72,
+                73,
+                82,
+                84,
+                83,
+                74,
+                85,
+                75,
+                56,
+                57,
+                50,
+                51,
+                47,
+                48,
+                52,
+                89,
+                53,
+                90,
+                54,
+                55,
+                96,
+                16,
+                9,
+                10
+            ],
+            "edges": [
+                10,
+                11
+            ],
+            "GT": false,
+            "originalSurprisal": 5.65621,
+            "baseSurprisal": 0.374511,
+            "newSurprisal": 0.374511,
+            "rankBefore": 6,
+            "rankAfter": 5
+        },
+        {
+            "name": "/m/0gr42",
+            "nodes": [
+                94,
+                95,
+                72,
+                73,
+                74,
+                75,
+                56,
+                57,
+                50,
+                51,
+                47,
+                48,
+                52,
+                53,
+                54,
+                55,
+                19,
+                16,
+                11,
+                20,
+                6,
+                7,
+                8
+            ],
+            "edges": [
+                15,
+                16
+            ],
+            "GT": false,
+            "originalSurprisal": 4.36299,
+            "baseSurprisal": 0.374509,
+            "newSurprisal": 0.374509,
+            "rankBefore": 7,
+            "rankAfter": 6
+        },
+        {
+            "name": "/m/0gq_d",
+            "nodes": [
+                94,
+                95,
+                72,
+                73,
+                74,
+                75,
+                56,
+                57,
+                50,
+                51,
+                47,
+                48,
+                52,
+                53,
+                54,
+                55,
+                16,
+                6,
+                7,
+                8
+            ],
+            "edges": [
+                13,
+                17
+            ],
+            "GT": false,
+            "originalSurprisal": 4.06183,
+            "baseSurprisal": 0.374509,
+            "newSurprisal": 0.374509,
+            "rankBefore": 9,
+            "rankAfter": 7
+        },
+        {
+            "name": "/m/0gvx_",
+            "nodes": [
+                94,
+                95,
+                6,
+                7,
+                8
+            ],
+            "edges": [
+                12
+            ],
+            "GT": false,
+            "originalSurprisal": 0.748868,
+            "baseSurprisal": 0.369949,
+            "newSurprisal": 0.369949,
+            "rankBefore": 51,
+            "rankAfter": 8
+        },
+        {
+            "name": "/m/054ky1",
+            "nodes": [
+                80,
+                76,
+                77,
+                78,
+                79,
+                81,
+                72,
+                63,
+                73,
+                82,
+                83,
+                84,
+                74,
+                64,
+                85,
+                65,
+                75,
+                86,
+                66,
+                56,
+                57,
+                50,
+                51,
+                47,
+                48,
+                87,
+                52,
+                88,
+                89,
+                53,
+                90,
+                91,
+                92,
+                54,
+                55,
+                93,
+                9,
+                10
+            ],
+            "edges": [
+                8,
+                9
+            ],
+            "GT": false,
+            "originalSurprisal": 8.69386,
+            "baseSurprisal": 0.354066,
+            "newSurprisal": 0.354066,
+            "rankBefore": 3,
+            "rankAfter": 9
+        },
+        {
+            "name": "/m/0p9sw",
+            "nodes": [
+                76,
+                77,
+                78,
+                79,
+                72,
+                63,
+                73,
+                74,
+                64,
+                65,
+                75,
+                66,
+                56,
+                57,
+                50,
+                51,
+                47,
+                48,
+                52,
+                53,
+                54,
+                55,
+                33,
+                34,
+                19,
+                16,
+                11,
+                20,
+                14,
+                15,
+                25,
+                6,
+                7
+            ],
+            "edges": [
+                5,
+                6,
+                7
+            ],
+            "GT": false,
+            "originalSurprisal": 6.43371,
+            "baseSurprisal": 0.337848,
+            "newSurprisal": 0.337848,
+            "rankBefore": 5,
+            "rankAfter": 10
+        }
+    ]
+}
