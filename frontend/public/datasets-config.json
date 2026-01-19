@@ -1,0 +1,41 @@
+{
+  "datasets": {
+    "FB15k": {
+      "records": [
+        "positive0.5"
+      ]
+    },
+    "FB15k-237": {
+      "records": [
+        "all0.5_weight1.0",
+        "negative",
+        "positive0.5"
+      ]
+    },
+    "KG20C": {
+      "records": [
+        "positive0.5"
+      ]
+    },
+    "WN18": {
+      "records": [
+        "positive0.5"
+      ]
+    },
+    "WN18RR": {
+      "records": [
+        "positive0.5"
+      ]
+    },
+    "YAGO3-10": {
+      "records": [
+        "positive0.5"
+      ]
+    },
+    "codex-l": {
+      "records": [
+        "positive0.5"
+      ]
+    }
+  }
+}

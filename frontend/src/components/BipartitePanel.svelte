@@ -50,13 +50,17 @@
           aVal = a.originalSurprisal;
           bVal = b.originalSurprisal;
           break;
-        case 'baseSurprisal':
-          aVal = a.baseSurprisal;
-          bVal = b.baseSurprisal;
-          break;
         case 'newSurprisal':
           aVal = a.newSurprisal;
           bVal = b.newSurprisal;
+          break;
+        case 'positiveDep':
+          aVal = a.positiveDep;
+          bVal = b.positiveDep;
+          break;
+        case 'negativeDep':
+          aVal = a.negativeDep;
+          bVal = b.negativeDep;
           break;
         case 'rankBefore':
           aVal = a.rankBefore;
@@ -92,7 +96,7 @@
     
     // 创建比例尺
     const ruleScale = d3.scaleBand()
-      .domain(nodes.map((n, i) => i))
+      .domain(nodes.map((n) => n.id.toString()))
       .range([20, svgHeight - 20])
       .padding(0.1);
     
@@ -104,10 +108,12 @@
     // 准备连线数据
     const links = [];
     sortedCandidates.forEach((candidate, candIdx) => {
-      candidate.nodes.forEach(nodeIdx => {
+      candidate.nodes.forEach(nodeId => {
+        const nodeKey = nodeId.toString();
+        if (!ruleScale.domain().includes(nodeKey)) return;
         links.push({
           candidateIdx: candIdx,
-          nodeIdx: nodeIdx,
+          nodeId: nodeId,
           candidateName: candidate.name,
           isGT: candidate.GT
         });
@@ -120,7 +126,7 @@
       .data(links)
       .join('line')
       .attr('x1', leftX)
-      .attr('y1', d => ruleScale(d.nodeIdx) + ruleScale.bandwidth() / 2)
+      .attr('y1', d => ruleScale(d.nodeId.toString()) + ruleScale.bandwidth() / 2)
       .attr('x2', rightX)
       .attr('y2', d => candidateScale(d.candidateIdx) + candidateScale.bandwidth() / 2)
       .attr('stroke', d => d.isGT ? '#4caf50' : '#ccc')
@@ -133,7 +139,7 @@
       .data(nodes)
       .join('circle')
       .attr('cx', leftX)
-      .attr('cy', (d, i) => ruleScale(i) + ruleScale.bandwidth() / 2)
+      .attr('cy', (d) => ruleScale(d.id.toString()) + ruleScale.bandwidth() / 2)
       .attr('r', 4)
       .attr('fill', '#2196f3')
       .attr('stroke', '#fff')
@@ -145,12 +151,12 @@
       .data(nodes)
       .join('text')
       .attr('x', leftX - 8)
-      .attr('y', (d, i) => ruleScale(i) + ruleScale.bandwidth() / 2)
+      .attr('y', (d) => ruleScale(d.id.toString()) + ruleScale.bandwidth() / 2)
       .attr('text-anchor', 'end')
       .attr('dominant-baseline', 'middle')
       .attr('font-size', '10px')
       .attr('fill', '#666')
-      .text((d, i) => `R${i}`);
+      .text((d) => `R${d.id}`);
     
     // 绘制candidates节点
     svg.append('g')
@@ -213,11 +219,14 @@
             <th on:click={() => sortBy('originalSurprisal')} class="sortable">
               Orig. {sortColumn === 'originalSurprisal' ? (sortDirection === 'desc' ? '↓' : '↑') : ''}
             </th>
-            <th on:click={() => sortBy('baseSurprisal')} class="sortable">
-              Base {sortColumn === 'baseSurprisal' ? (sortDirection === 'desc' ? '↓' : '↑') : ''}
-            </th>
             <th on:click={() => sortBy('newSurprisal')} class="sortable">
               New {sortColumn === 'newSurprisal' ? (sortDirection === 'desc' ? '↓' : '↑') : ''}
+            </th>
+            <th on:click={() => sortBy('positiveDep')} class="sortable">
+              +Dep {sortColumn === 'positiveDep' ? (sortDirection === 'desc' ? '↓' : '↑') : ''}
+            </th>
+            <th on:click={() => sortBy('negativeDep')} class="sortable">
+              -Dep {sortColumn === 'negativeDep' ? (sortDirection === 'desc' ? '↓' : '↑') : ''}
             </th>
             <th on:click={() => sortBy('rankAfter')} class="sortable">
               Rank {sortColumn === 'rankAfter' ? (sortDirection === 'desc' ? '↓' : '↑') : ''}
@@ -243,8 +252,9 @@
                 {/if}
               </td>
               <td>{candidate.originalSurprisal.toFixed(3)}</td>
-              <td>{candidate.baseSurprisal.toFixed(3)}</td>
               <td>{candidate.newSurprisal.toFixed(3)}</td>
+              <td>{candidate.positiveDep}</td>
+              <td>{candidate.negativeDep}</td>
               <td>
                 {candidate.rankBefore} → {candidate.rankAfter}
               </td>
@@ -391,12 +401,13 @@
   
   th:nth-child(3), td:nth-child(3),
   th:nth-child(4), td:nth-child(4),
-  th:nth-child(5), td:nth-child(5) {
+  th:nth-child(5), td:nth-child(5),
+  th:nth-child(6), td:nth-child(6) {
     width: 60px;
     text-align: right;
   }
-  
-  th:nth-child(6), td:nth-child(6) {
+
+  th:nth-child(7), td:nth-child(7) {
     width: 80px;
     text-align: center;
   }

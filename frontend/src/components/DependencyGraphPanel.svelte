@@ -6,9 +6,13 @@
   
   export let processedData = null;
   export let highlightedCandidate = null;
+  export let numUnseen = 5;
+  export let excludeRedundant = true;
   export let onNodeHover = (event, data) => {};
   export let onEdgeHover = (event, data) => {};
   export let onHoverEnd = () => {};
+  export let onNumUnseenChange = (val) => {};
+  export let onExcludeRedundantChange = (val) => {};
   
   let chartContainer;
   let layout = null;
@@ -29,11 +33,13 @@
   let surprisalSlider = null;
   let suppSlider = null;
   let bodySizeSlider = null;
+  let numUnseenSlider = null;
   
   // slider DOM 元素
   let surprisalSliderEl;
   let suppSliderEl;
   let bodySizeSliderEl;
+  let numUnseenSliderEl;
   
   // 图表尺寸
   const width = 800;
@@ -45,6 +51,11 @@
   $: if (processedData) {
     initializeLayout(processedData);
     needsSliderInit = true;
+  }
+  
+  // 当numUnseen变化时更新滑动条
+  $: if (numUnseenSlider && numUnseen >= 1 && numUnseen <= 10) {
+    numUnseenSlider.set([numUnseen]);
   }
   
   // 当高亮候选变化时更新样式
@@ -201,6 +212,37 @@
           console.error('Failed to create bodySize slider:', e);
         }
       }
+      
+      // NUM_UNSEEN slider
+      if (numUnseenSlider) {
+        numUnseenSlider.destroy();
+        numUnseenSlider = null;
+      }
+      if (numUnseenSliderEl && !numUnseenSliderEl.noUiSlider) {
+        try {
+          numUnseenSlider = noUiSlider.create(numUnseenSliderEl, {
+            start: [numUnseen],
+            connect: [true, false],
+            range: {
+              'min': 1,
+              'max': 10
+            },
+            step: 1,
+            tooltips: [
+              { to: (v) => Math.round(v) }
+            ]
+          });
+          
+          numUnseenSlider.on('change', (values) => {
+            const newValue = Math.round(parseFloat(String(values[0])));
+            if (onNumUnseenChange) {
+              onNumUnseenChange(newValue);
+            }
+          });
+        } catch (e) {
+          console.error('Failed to create numUnseen slider:', e);
+        }
+      }
     }, 0);
   }
   
@@ -297,18 +339,21 @@
       
       console.log('Layout created/updated, layoutNodes:', layoutNodes.length);
       
-      // 如果有高亮候选，应用高亮
-      if (highlightedNodeIds && highlightedEdgeIds) {
-        highlightNodesAndEdges(layout, highlightedNodeIds, highlightedEdgeIds);
-      }
+      // 应用高亮（如果有选中）或还原状态（如果没有选中）
+      const nodeSet = highlightedNodeIds && highlightedNodeIds.size > 0 ? highlightedNodeIds : null;
+      const edgeSet = highlightedEdgeIds && highlightedEdgeIds.size > 0 ? highlightedEdgeIds : null;
+      highlightNodesAndEdges(layout, nodeSet, edgeSet);
     } catch (e) {
       console.error('Error creating/updating layout:', e);
     }
   }
   
   // 当高亮候选变化时更新图表
-  $: if (layout && highlightedNodeIds !== null && highlightedEdgeIds !== null) {
-    highlightNodesAndEdges(layout, highlightedNodeIds, highlightedEdgeIds);
+  // 即使highlightedNodeIds和highlightedEdgeIds为null或空Set，也要调用以还原状态
+  $: if (layout) {
+    const nodeSet = highlightedNodeIds && highlightedNodeIds.size > 0 ? highlightedNodeIds : null;
+    const edgeSet = highlightedEdgeIds && highlightedEdgeIds.size > 0 ? highlightedEdgeIds : null;
+    highlightNodesAndEdges(layout, nodeSet, edgeSet);
   }
   
   onMount(() => {
@@ -338,6 +383,7 @@
     if (surprisalSlider) surprisalSlider.destroy();
     if (suppSlider) suppSlider.destroy();
     if (bodySizeSlider) bodySizeSlider.destroy();
+    if (numUnseenSlider) numUnseenSlider.destroy();
   });
 </script>
 
@@ -359,6 +405,26 @@
       <div class="filter-group">
         <label>Body Size</label>
         <div class="slider-container" bind:this={bodySizeSliderEl}></div>
+      </div>
+      
+      <div class="filter-group">
+        <label>NUM_UNSEEN</label>
+        <div class="slider-container" bind:this={numUnseenSliderEl}></div>
+      </div>
+      
+      <div class="filter-group checkbox-group">
+        <label>
+          <input 
+            type="checkbox" 
+            checked={excludeRedundant}
+            on:change={(e) => {
+              if (onExcludeRedundantChange) {
+                onExcludeRedundantChange(e.target.checked);
+              }
+            }}
+          />
+          排除冗余规则&候选
+        </label>
       </div>
     </div>
   </div>
@@ -436,12 +502,32 @@
     min-width: 200px;
   }
   
+  .filter-group.checkbox-group {
+    flex: 0 0 auto;
+    min-width: auto;
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+  }
+  
   .filter-group label {
     display: block;
     margin-bottom: 12px;
     font-size: 13px;
     font-weight: 500;
     color: #495057;
+  }
+  
+  .filter-group.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  .filter-group.checkbox-group input[type="checkbox"] {
+    cursor: pointer;
   }
   
   .slider-container {

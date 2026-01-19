@@ -1,14 +1,107 @@
 <script>
+  import { onMount } from 'svelte';
+  
   export let queryIndex = [];
   export let selectedQueryIdx = -1;
+  export let dataset = 'FB15k-237';
+  export let record = 'negative';
+  export let onDatasetChange = (val) => {};
+  export let onRecordChange = (val) => {};
+  
+  // 动态加载的配置
+  let datasetsConfig = null;
+  let availableDatasets = [];
+  let availableRecords = [];
+  let loadingConfig = true;
+  
+  // 加载配置文件
+  onMount(async () => {
+    try {
+      const response = await fetch('/datasets-config.json');
+      datasetsConfig = await response.json();
+      availableDatasets = Object.keys(datasetsConfig.datasets || {}).sort();
+      updateRecordsForDataset(dataset);
+      loadingConfig = false;
+    } catch (e) {
+      console.error('加载配置文件失败:', e);
+      // 使用默认值
+      availableDatasets = ['FB15k-237', 'FB15k', 'KG20C', 'WN18', 'WN18RR', 'YAGO3-10', 'codex-l'];
+      availableRecords = ['negative', 'positive0.5'];
+      loadingConfig = false;
+    }
+  });
+  
+  // 根据dataset更新record选项
+  function updateRecordsForDataset(datasetName) {
+    if (datasetsConfig && datasetsConfig.datasets[datasetName]) {
+      availableRecords = datasetsConfig.datasets[datasetName].records || [];
+      // 如果当前record不在新列表中，且列表不为空，则选择第一个
+      if (availableRecords.length > 0 && !availableRecords.includes(record)) {
+        record = availableRecords[0];
+        if (onRecordChange) {
+          onRecordChange(record);
+        }
+      }
+    } else {
+      availableRecords = [];
+    }
+  }
   
   function selectQuery(index) {
     selectedQueryIdx = index;
   }
+  
+  function handleDatasetChange(event) {
+    const newDataset = event.target.value;
+    dataset = newDataset;
+    updateRecordsForDataset(newDataset);
+    if (onDatasetChange) {
+      onDatasetChange(newDataset);
+    }
+  }
+  
+  function handleRecordChange(event) {
+    const newRecord = event.target.value;
+    record = newRecord;
+    if (onRecordChange) {
+      onRecordChange(newRecord);
+    }
+  }
+  
+  // 当dataset prop变化时，更新record选项
+  $: if (datasetsConfig && dataset) {
+    updateRecordsForDataset(dataset);
+  }
 </script>
 
 <div class="query-table-container">
-  <h2>Query 列表</h2>
+  <div class="header-row">
+    <h2>Query 列表</h2>
+    <div class="controls">
+      <div class="control-group">
+        <label for="dataset-select">Dataset:</label>
+        <select id="dataset-select" value={dataset} on:change={handleDatasetChange}>
+          {#each availableDatasets as ds}
+            <option value={ds} selected={ds === dataset}>{ds}</option>
+          {/each}
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="record-select">Record:</label>
+        <select id="record-select" value={record} on:change={handleRecordChange} disabled={loadingConfig || availableRecords.length === 0}>
+          {#if loadingConfig}
+            <option>加载中...</option>
+          {:else if availableRecords.length === 0}
+            <option>无可用记录</option>
+          {:else}
+            {#each availableRecords as r}
+              <option value={r} selected={r === record}>{r}</option>
+            {/each}
+          {/if}
+        </select>
+      </div>
+    </div>
+  </div>
   <div class="table-wrapper">
     <table>
       <thead>
@@ -49,10 +142,60 @@
     max-height: 250px;
   }
   
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
   h2 {
-    margin: 0 0 15px 0;
+    margin: 0;
     font-size: 18px;
     color: #333;
+  }
+  
+  .controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .control-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #495057;
+    white-space: nowrap;
+  }
+  
+  .control-group select {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background: white;
+    color: #495057;
+    cursor: pointer;
+    min-width: 120px;
+  }
+  
+  .control-group select:hover {
+    border-color: #adb5bd;
+  }
+  
+  .control-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.25);
   }
   
   .table-wrapper {

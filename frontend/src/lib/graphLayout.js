@@ -62,38 +62,77 @@ export function createEChartsLayout(container, nodes, edges, width, height, metr
     originalData: node
   }));
   
+  // 创建节点ID到节点的映射，用于查找节点的surprisal/conf
+  const nodeMap = new Map();
+  nodes.forEach(node => {
+    nodeMap.set(node.id, node);
+  });
+  
   // 转换边格式为 ECharts 格式
-  // 边的粗细编码 surprisal 的绝对值
-  // 边的深浅编码 support
-  // 负边（surprisal < 0）使用蓝色
-  const allSurprisals = edges.map(e => Math.abs(e.surprisal));
-  const allSupps = edges.map(e => e.supp);
+  // 边的颜色：正边（lift > 0）为红色，负边（lift < 0）为蓝色
+  // 边的粗细：正比于lift的绝对值
+  // 边的方向：从surprisal/conf较高的节点指向较低的节点
+  const allLifts = edges.map(e => Math.abs(e.lift || 0));
+  const maxAbsLift = allLifts.length > 0 ? Math.max(...allLifts) : 1;
   
   const echartsLinks = edges.map(edge => {
-    const isNegative = edge.surprisal < 0;
-    const absSurprisal = Math.abs(edge.surprisal);
+    const lift = edge.lift || 0;
+    const isNegative = lift < 0;
+    const absLift = Math.abs(lift);
+    
+    // 获取source和target节点的surprisal和conf
+    const sourceNode = nodeMap.get(edge.source);
+    const targetNode = nodeMap.get(edge.target);
+    
+    // 确定边的方向：从surprisal/conf较高的节点指向较低的节点
+    // 优先使用surprisal，如果surprisal相同则使用conf
+    let actualSource = edge.source;
+    let actualTarget = edge.target;
+    
+    if (sourceNode && targetNode) {
+      const sourceSurprisal = sourceNode.surprisal || 0;
+      const targetSurprisal = targetNode.surprisal || 0;
+      
+      // 如果source的surprisal较低，则交换方向
+      if (sourceSurprisal < targetSurprisal) {
+        actualSource = edge.target;
+        actualTarget = edge.source;
+      } else if (sourceSurprisal === targetSurprisal) {
+        // 如果surprisal相同，则比较conf
+        const sourceConf = sourceNode.conf || 0;
+        const targetConf = targetNode.conf || 0;
+        if (sourceConf < targetConf) {
+          actualSource = edge.target;
+          actualTarget = edge.source;
+        }
+      }
+    }
+    
+    // 计算边宽度：正比于lift的绝对值
+    const minWidth = 1;
+    const maxWidth = 5;
+    const width = maxAbsLift > 0 
+      ? minWidth + (absLift / maxAbsLift) * (maxWidth - minWidth)
+      : minWidth;
+    
+    // 边的颜色：正边为红色，负边为蓝色
+    const edgeColor = isNegative ? '#0066ff' : '#ff0000';
     
     return {
-      source: edge.source.toString(),
-      target: edge.target.toString(),
+      source: actualSource.toString(),
+      target: actualTarget.toString(),
       value: edge.supp || 1,
       lineStyle: {
-        width: calculateEdgeWidthFromAbsSurprisal(
-          absSurprisal,
-          allSurprisals,
-          1,
-          5
-        ),
-        opacity: 1,  // 使用固定透明度，深浅通过颜色表示
-        color: isNegative ? '#0066ff' : calculateEdgeColorFromSupp(
-          edge.supp,
-          allSupps
-        )
+        width: width,
+        opacity: 1,
+        color: edgeColor,
+        curveness: 0.1
       },
-      // 保存原始数据，包括是否为负边
+      // 保存原始数据
       originalData: {
         ...edge,
-        isNegative: isNegative
+        isNegative: isNegative,
+        originalOpacity: 1
       }
     };
   });
@@ -118,8 +157,12 @@ export function createEChartsLayout(container, nodes, edges, width, height, metr
       },
       lineStyle: {
         color: 'source',
-        curveness: 0.1
+        curveness: 0.1,
+        width: 2
       },
+      // 启用箭头显示（有向图）
+      edgeSymbol: ['none', 'arrow'],
+      edgeSymbolSize: [0, 10],
       emphasis: {
         focus: 'adjacency',
         lineStyle: {
@@ -224,38 +267,77 @@ export function updateEChartsLayout(layout, nodes, edges, metricRanges) {
     originalData: node
   }));
   
+  // 创建节点ID到节点的映射，用于查找节点的surprisal/conf
+  const nodeMap = new Map();
+  nodes.forEach(node => {
+    nodeMap.set(node.id, node);
+  });
+  
   // 转换边格式
-  // 边的粗细编码 surprisal 的绝对值
-  // 边的深浅编码 support
-  // 负边（surprisal < 0）使用蓝色
-  const allSurprisals = edges.map(e => Math.abs(e.surprisal));
-  const allSupps = edges.map(e => e.supp);
+  // 边的颜色：正边（lift > 0）为红色，负边（lift < 0）为蓝色
+  // 边的粗细：正比于lift的绝对值
+  // 边的方向：从surprisal/conf较高的节点指向较低的节点
+  const allLifts = edges.map(e => Math.abs(e.lift || 0));
+  const maxAbsLift = allLifts.length > 0 ? Math.max(...allLifts) : 1;
   
   const echartsLinks = edges.map(edge => {
-    const isNegative = edge.surprisal < 0;
-    const absSurprisal = Math.abs(edge.surprisal);
+    const lift = edge.lift || 0;
+    const isNegative = lift < 0;
+    const absLift = Math.abs(lift);
+    
+    // 获取source和target节点的surprisal和conf
+    const sourceNode = nodeMap.get(edge.source);
+    const targetNode = nodeMap.get(edge.target);
+    
+    // 确定边的方向：从surprisal/conf较高的节点指向较低的节点
+    // 优先使用surprisal，如果surprisal相同则使用conf
+    let actualSource = edge.source;
+    let actualTarget = edge.target;
+    
+    if (sourceNode && targetNode) {
+      const sourceSurprisal = sourceNode.surprisal || 0;
+      const targetSurprisal = targetNode.surprisal || 0;
+      
+      // 如果source的surprisal较低，则交换方向
+      if (sourceSurprisal < targetSurprisal) {
+        actualSource = edge.target;
+        actualTarget = edge.source;
+      } else if (sourceSurprisal === targetSurprisal) {
+        // 如果surprisal相同，则比较conf
+        const sourceConf = sourceNode.conf || 0;
+        const targetConf = targetNode.conf || 0;
+        if (sourceConf < targetConf) {
+          actualSource = edge.target;
+          actualTarget = edge.source;
+        }
+      }
+    }
+    
+    // 计算边宽度：正比于lift的绝对值
+    const minWidth = 1;
+    const maxWidth = 5;
+    const width = maxAbsLift > 0 
+      ? minWidth + (absLift / maxAbsLift) * (maxWidth - minWidth)
+      : minWidth;
+    
+    // 边的颜色：正边为红色，负边为蓝色
+    const edgeColor = isNegative ? '#0066ff' : '#ff0000';
     
     return {
-      source: edge.source.toString(),
-      target: edge.target.toString(),
+      source: actualSource.toString(),
+      target: actualTarget.toString(),
       value: edge.supp || 1,
       lineStyle: {
-        width: calculateEdgeWidthFromAbsSurprisal(
-          absSurprisal,
-          allSurprisals,
-          1,
-          5
-        ),
-        opacity: 1,  // 使用固定透明度，深浅通过颜色表示
-        color: isNegative ? '#0066ff' : calculateEdgeColorFromSupp(
-          edge.supp,
-          allSupps
-        )
+        width: width,
+        opacity: 1,
+        color: edgeColor,
+        curveness: 0.1
       },
-      // 保存原始数据，包括是否为负边
+      // 保存原始数据
       originalData: {
         ...edge,
-        isNegative: isNegative
+        isNegative: isNegative,
+        originalOpacity: 1
       }
     };
   });
@@ -308,6 +390,9 @@ export function highlightNodesAndEdges(layout, nodeIds, edgeIds) {
   
   const series = option.series[0];
   
+  // 判断是否有选中（如果nodeIds和edgeIds都为null或空，则没有选中）
+  const hasSelection = (nodeIds && nodeIds.size > 0) || (edgeIds && edgeIds.size > 0);
+  
   // 更新节点样式
   const updatedNodes = (series.data || []).map(node => {
     const nodeId = typeof node.id === 'string' ? parseInt(node.id) : node.id;
@@ -318,27 +403,35 @@ export function highlightNodesAndEdges(layout, nodeIds, edgeIds) {
         ...node.itemStyle,
         borderColor: isHighlighted ? '#ff0000' : '#333',
         borderWidth: isHighlighted ? 3 : 1,
-        opacity: nodeIds && !isHighlighted ? 0.3 : 1
+        opacity: hasSelection && !isHighlighted ? 0.3 : 1
       }
     };
   });
   
   // 更新边样式
+  // 如果选中了节点或边，则相关的边不透明，其他边透明度下降
+  // 如果没有选中，则所有边都恢复不透明
   const updatedLinks = (series.links || []).map(link => {
     const edgeId = link.originalData?.id;
     const isHighlighted = edgeIds && edgeIds.has(edgeId);
     const isNegative = link.originalData?.isNegative || false;
     
-    // 如果是负边，保持蓝色不变
-    const edgeColor = isNegative ? '#0066ff' : (isHighlighted ? '#ff0000' : link.lineStyle.color || '#999');
+    // 边的颜色：正边为红色，负边为蓝色（不受高亮影响）
+    const edgeColor = isNegative ? '#0066ff' : '#ff0000';
+    
+    // 透明度：如果有选中，则相关的边不透明，其他边透明度下降
+    // 如果没有选中，则所有边都恢复不透明
+    const opacity = hasSelection 
+      ? (isHighlighted ? 1 : 0.2)
+      : (link.originalData?.originalOpacity ?? 1);
     
     return {
       ...link,
       lineStyle: {
         ...link.lineStyle,
         color: edgeColor,
-        opacity: edgeIds && !isHighlighted ? 0.2 : 1,  // 使用固定透明度，深浅通过颜色表示
-        width: isHighlighted ? Math.max(link.lineStyle.width || 2, 3) : link.lineStyle.width || 2
+        opacity: opacity,
+        width: link.lineStyle.width || 2
       }
     };
   });

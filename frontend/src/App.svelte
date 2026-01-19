@@ -16,6 +16,14 @@
   let loading = true;
   let error = null;
   
+  // 过滤器参数
+  let numUnseen = 5;
+  let excludeRedundant = true;
+  
+  // Dataset和Record选择
+  let dataset = 'FB15k-237';
+  let record = 'negative';
+  
   // Tooltip状态
   let tooltipData = {
     visible: false,
@@ -24,23 +32,49 @@
     content: {}
   };
   
-  // 加载数据
-  onMount(async () => {
+  // 加载数据的函数
+  async function loadData(datasetName, recordName) {
     try {
       loading = true;
-      allQueries = await loadDataFile('/data/example-100.json');
+      error = null;
+      const filePath = `/out/${datasetName}/eval-${recordName}.json`;
+      allQueries = await loadDataFile(filePath);
       queryIndex = buildQueryIndex(allQueries);
       loading = false;
       
       // 自动选择第一个query
       if (queryIndex.length > 0) {
         selectQuery(0);
+      } else {
+        selectedQueryIdx = -1;
+        processedData = null;
       }
     } catch (e) {
       error = `加载数据失败: ${e.message}`;
       loading = false;
+      allQueries = [];
+      queryIndex = [];
+      selectedQueryIdx = -1;
+      processedData = null;
     }
+  }
+  
+  // 初始加载数据
+  onMount(async () => {
+    await loadData(dataset, record);
   });
+  
+  // 处理dataset变化
+  async function handleDatasetChange(newDataset) {
+    dataset = newDataset;
+    await loadData(dataset, record);
+  }
+  
+  // 处理record变化
+  async function handleRecordChange(newRecord) {
+    record = newRecord;
+    await loadData(dataset, record);
+  }
   
   // 选择query
   function selectQuery(idx) {
@@ -49,9 +83,18 @@
     highlightedCandidate = null;
     
     if (idx >= 0 && idx < allQueries.length) {
-      processedData = processQueryData(allQueries[idx]);
+      processedData = processQueryData(allQueries[idx], numUnseen, excludeRedundant);
     } else {
       processedData = null;
+    }
+  }
+  
+  // 当过滤器参数变化时重新处理数据
+  $: if (selectedQueryIdx >= 0 && allQueries.length > 0) {
+    if (selectedQueryIdx >= 0 && selectedQueryIdx < allQueries.length) {
+      processedData = processQueryData(allQueries[selectedQueryIdx], numUnseen, excludeRedundant);
+      selectedCandidateIdx = -1;
+      highlightedCandidate = null;
     }
   }
   
@@ -97,10 +140,6 @@
     };
   }
   
-  // 响应式更新selectedQueryIdx
-  $: if (selectedQueryIdx >= 0) {
-    selectQuery(selectedQueryIdx);
-  }
 </script>
 
 <main>
@@ -118,6 +157,10 @@
     <QueryTable 
       {queryIndex} 
       bind:selectedQueryIdx={selectedQueryIdx}
+      {dataset}
+      {record}
+      onDatasetChange={handleDatasetChange}
+      onRecordChange={handleRecordChange}
     />
       
     {#if processedData}
@@ -127,9 +170,13 @@
           <DependencyGraphPanel 
             {processedData}
             {highlightedCandidate}
+            {numUnseen}
+            {excludeRedundant}
             onNodeHover={handleNodeHover}
             onEdgeHover={handleEdgeHover}
             onHoverEnd={handleHoverEnd}
+            onNumUnseenChange={(val) => numUnseen = val}
+            onExcludeRedundantChange={(val) => excludeRedundant = val}
           />
         </div>
         
